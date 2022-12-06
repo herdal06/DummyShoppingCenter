@@ -5,20 +5,20 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.herdal.dummyshoppingcenter.databinding.ItemProductBinding
-import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel
+import com.herdal.dummyshoppingcenter.ui.home.ProductItemUiState
 
-class ProductAdapter : PagingDataAdapter<ProductUiModel, ProductViewHolder>(DiffCallback) {
+class ProductAdapter : PagingDataAdapter<ProductItemUiState, ProductViewHolder>(DiffCallback) {
 
     companion object {
-        private val DiffCallback = object : DiffUtil.ItemCallback<ProductUiModel>() {
+        private val DiffCallback = object : DiffUtil.ItemCallback<ProductItemUiState>() {
             override fun areItemsTheSame(
-                oldItem: ProductUiModel,
-                newItem: ProductUiModel
-            ): Boolean = oldItem.id == newItem.id
+                oldItem: ProductItemUiState,
+                newItem: ProductItemUiState
+            ): Boolean = oldItem.getThumbnail() == newItem.getThumbnail()
 
             override fun areContentsTheSame(
-                oldItem: ProductUiModel,
-                newItem: ProductUiModel
+                oldItem: ProductItemUiState,
+                newItem: ProductItemUiState
             ): Boolean = oldItem == newItem
         }
     }

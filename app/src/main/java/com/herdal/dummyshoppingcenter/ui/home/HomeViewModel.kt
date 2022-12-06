@@ -3,9 +3,10 @@ package com.herdal.dummyshoppingcenter.ui.home
 import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import androidx.paging.map
 import com.herdal.dummyshoppingcenter.domain.repository.ProductRepository
-import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.map
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -15,11 +16,15 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _products =
-        MutableLiveData<PagingData<ProductUiModel>>()
-    val products: LiveData<PagingData<ProductUiModel>> = _products
+        MutableLiveData<PagingData<ProductItemUiState>>()
+    val products: LiveData<PagingData<ProductItemUiState>> = _products
 
-    suspend fun getProducts(): LiveData<PagingData<ProductUiModel>> {
-        val response = productRepository.getProducts().cachedIn(viewModelScope).asLiveData()
+    suspend fun getProducts(): LiveData<PagingData<ProductItemUiState>> {
+        val response = productRepository.getProducts().map { pagingData ->
+            pagingData.map { productModel ->
+                ProductItemUiState(productModel)
+            }
+        }.cachedIn(viewModelScope).asLiveData()
         _products.value = response.value
         Timber.d("$response")
         return response

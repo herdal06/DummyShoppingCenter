@@ -23,11 +23,16 @@ fun TextView.setRatingStatus(rating: Double?) {
 }
 
 @BindingAdapter("setPriceStatus")
-fun TextView.setPriceStatus(price: Int?) {
-    price?.let {
-        if (price >= 500) {
-            this.text = resources.getString(R.string.free_shipping)
-            this.setBackgroundResource(R.color.orange)
+fun TextView.setPriceStatus(price: String?) {
+    try {
+        price?.let {
+            if (price.toInt() >= 500) {
+                this.text = resources.getString(R.string.free_shipping)
+                this.setBackgroundResource(R.color.orange)
+            }
         }
     }
+   catch (e:NumberFormatException) {
+       e.printStackTrace()
+   }
 }

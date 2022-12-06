@@ -7,7 +7,7 @@
 
         <variable
             name="product"
-            type="com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel" />
+            type="com.herdal.dummyshoppingcenter.ui.home.ProductItemUiState" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
