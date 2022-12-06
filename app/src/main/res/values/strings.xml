@@ -9,4 +9,6 @@
     <string name="high_rated">High Rated</string>
     <string name="free_shipping">Free Shipping</string>
     <string name="best_product">Best-Selling! 😊</string>
+    <string name="switch_layout_manager">Switch Layout Manager</string>
+    <string name="switch_to_dark_mode">Switch to dark mode</string>
 </resources>
