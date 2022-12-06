@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/double_extra_small_margin"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageViewProduct"
+                    imageUrl="@{product.thumbnail}"
+                    android:layout_width="300dp"
+                    android:layout_height="250dp"
+                    android:scaleType="fitXY"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_view_fav"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_margin="@dimen/double_extra_small_margin"
+                    app:cardCornerRadius="@dimen/item_product_fav_icon_radius">
+
+                    <ImageView
+                        android:id="@+id/imageButtonFav"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="end"
+                        android:background="@color/app_background_color"
+                        android:contentDescription="@string/icon_favorite"
+                        android:padding="@dimen/double_extra_small_padding"
+                        app:srcCompat="@drawable/ic_favorite_outlined" />
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textViewStatus"
+                style="@style/StatusText"
+                setPriceStatus="@{product.price}"
+                setRatingStatus="@{product.rating}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textViewProductName"
+                style="@style/ProductText.XLarge"
+                text="@{product.title}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/small_margin"
+                android:ellipsize="end"
+                android:singleLine="true" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textViewPrice"
+                    style="@style/ProductText.Large"
+                    text='@{String.format("$"+product.price)}'
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/small_margin" />
+
+                <!-- this view for that i want to see textViewPrice on the right of the screen -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/ic_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small_margin"
+                    android:background="@drawable/ic_star"
+                    android:contentDescription="@string/star_icon" />
+
+                <TextView
+                    android:id="@+id/textViewRating"
+                    style="@style/ProductText.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/small_margin"
+                    android:layout_marginEnd="@dimen/small_margin"
+                    android:text="@{Double.toString(product.rating)}" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
