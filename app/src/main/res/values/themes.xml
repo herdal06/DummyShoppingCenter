@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.DummyShoppingCenter" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
@@ -12,5 +12,55 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+    <!-- product item text -->
+    <style name="ProductText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+    <!-- product item large text -->
+    <style name="ProductText.Large">
+        <item name="android:textSize">@dimen/large_size</item>
+    </style>
+
+    <!-- product item xlarge text -->
+    <style name="ProductText.XLarge">
+        <item name="android:textSize">@dimen/extra_large_size</item>
+    </style>
+
+    <!-- product item xlarge text -->
+    <style name="ProductText.XXLarge">
+        <item name="android:textSize">@dimen/double_extra_large_size</item>
+    </style>
+
+    <!-- product item xlarge orange text -->
+    <style name="ProductText.XXLarge.Orange">
+        <item name="android:textColor">@color/orange</item>
+    </style>
+
+    <!-- product item xlarge orange text -->
+    <style name="ProductText.XLarge.Orange">
+        <item name="android:textColor">@color/orange</item>
+    </style>
+    <!-- product item medium text -->
+    <style name="ProductText.Medium">
+        <item name="android:textSize">@dimen/medium_size</item>
+    </style>
+    <!-- product item small text -->
+    <style name="ProductText.Small">
+        <item name="android:textSize">@dimen/small_size</item>
+    </style>
+    <!-- product item status text -->
+    <style name="StatusText">
+        <item name="android:textSize">@dimen/large_size</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/double_extra_small_padding</item>
+    </style>
+    <!-- product item status green text -->
+    <style name="StatusText.Green">
+        <item name="android:background">@color/green</item>
+    </style>
+    <!-- product item status orange text -->
+    <style name="StatusText.Orange">
+        <item name="android:background">@color/orange</item>
     </style>
 </resources>
