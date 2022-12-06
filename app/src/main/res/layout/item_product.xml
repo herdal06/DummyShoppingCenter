@@ -58,8 +58,7 @@
             <TextView
                 android:id="@+id/textViewStatus"
                 style="@style/StatusText"
-                setPriceStatus="@{product.price}"
-                setRatingStatus="@{product.rating}"
+                setProductStatus="@{product}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

@@ -8,9 +8,11 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.herdal.dummyshoppingcenter.R
+import com.herdal.dummyshoppingcenter.ui.home.ProductItemUiState
 
 fun ImageView.downloadImage(url: String?, placeholder: CircularProgressDrawable) {
-    val options = RequestOptions().placeholder(placeholder).fitCenter().error(R.mipmap.ic_launcher_round)
+    val options =
+        RequestOptions().placeholder(placeholder).fitCenter().error(R.mipmap.ic_launcher_round)
     Glide.with(context).setDefaultRequestOptions(options).load(url).into(this)
 }
 
@@ -27,26 +29,20 @@ fun loadImage(view: ImageView, url: String?) {
     view.downloadImage(url, getPlaceHolder(view.context))
 }
 
-@BindingAdapter("setRatingStatus")
-fun TextView.setRatingStatus(rating: Double?) {
-    rating?.let {
-        if (rating >= 4.5) {
-            this.text = resources.getString(R.string.high_rated)
+@BindingAdapter("setProductStatus")
+fun TextView.setProductStatus(uiState: ProductItemUiState?) {
+    uiState?.let {
+        if(uiState.getRating() >= 4.5 && uiState.getPrice() >= 500) {
+            this.text = resources.getString(R.string.best_product)
+            this.setBackgroundResource(R.color.purple_700)
+        }
+        else if (uiState.getRating() < 4.5 && uiState.getPrice() >= 500) {
+            this.text = resources.getString(R.string.free_shipping)
+            this.setBackgroundResource(R.color.orange)
+        }
+        else if (uiState.getPrice() < 500 && uiState.getRating() >= 4.5) {
+            this.text = resources.getString(R.string.free_shipping)
             this.setBackgroundResource(R.color.green)
         }
-    }
-}
-
-@BindingAdapter("setPriceStatus")
-fun TextView.setPriceStatus(price: String?) {
-    try {
-        price?.let {
-            if (price.toInt() >= 500) {
-                this.text = resources.getString(R.string.free_shipping)
-                this.setBackgroundResource(R.color.orange)
-            }
-        }
-    } catch (e: NumberFormatException) {
-        e.printStackTrace()
     }
 }

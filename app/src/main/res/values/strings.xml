@@ -8,4 +8,5 @@
     <string name="error_message">Error while loading data!</string>
     <string name="high_rated">High Rated</string>
     <string name="free_shipping">Free Shipping</string>
+    <string name="best_product">Best-Selling! 😊</string>
 </resources>
