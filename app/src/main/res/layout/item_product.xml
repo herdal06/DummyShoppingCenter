@@ -28,7 +28,7 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/imageViewProduct"
-                    imageUrl="@{product.thumbnail}"
+                    android:loadImage="@{product.thumbnail}"
                     android:layout_width="300dp"
                     android:layout_height="250dp"
                     android:scaleType="fitXY"

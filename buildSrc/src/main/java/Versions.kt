@@ -25,4 +25,5 @@ object Versions {
     const val viewPager = "1.0.0"
     const val logger = "2.2.0"
     const val timber = "5.0.1"
+    const val swipe_refresh_layout = "1.1.0"
 }

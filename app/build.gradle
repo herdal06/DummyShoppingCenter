@@ -48,6 +48,7 @@ dependencies {
     implementation Libs.Google.material
     implementation Libs.AndroidX.constraintLayout
     implementation Libs.Google.gson
+    implementation Libs.AndroidX.swipe_refresh_layout
 
     // Test
     testImplementation Libs.Test.junit
