@@ -11,8 +11,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.herdal.dummyshoppingcenter.R
+import com.herdal.dummyshoppingcenter.common.Resource
 import com.herdal.dummyshoppingcenter.databinding.FragmentHomeBinding
 import com.herdal.dummyshoppingcenter.ui.home.adapter.products.ProductAdapter
+import com.herdal.dummyshoppingcenter.utils.ext.hide
+import com.herdal.dummyshoppingcenter.utils.ext.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -40,7 +43,40 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        collectApiRequest()
+        //collectApiRequest()
+        collectProducts()
+    }
+
+    private fun collectProducts() = binding.apply {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                launch {
+                    viewModel.getAllProducts()
+                    viewModel.productList.collect { res ->
+                        when (res) {
+                            is Resource.Loading -> {
+                                progressBarProducts.show()
+                                textViewErrorMessage.hide()
+                                recyclerViewProducts.hide()
+                            }
+                            is Resource.Success -> {
+                                progressBarProducts.hide()
+                                textViewErrorMessage.hide()
+                                recyclerViewProducts.show()
+                                res.data?.let {
+                                    productAdapter.submitData(lifecycle, it)
+                                }
+                            }
+                            is Resource.Error -> {
+                                progressBarProducts.hide()
+                                textViewErrorMessage.show()
+                                recyclerViewProducts.hide()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private fun collectApiRequest() = lifecycleScope.launch {
