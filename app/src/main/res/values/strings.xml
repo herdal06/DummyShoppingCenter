@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">DummyShoppingCenter</string>
+    <string name="app_name">Dummy Shopping Center</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="no_results">No results 😓</string>
+    <string name="star_icon">star_icon</string>
+    <string name="icon_favorite">icon_favorite</string>
+    <string name="error_message">Error while loading data!</string>
+    <string name="high_rated">High Rated</string>
+    <string name="free_shipping">Free Shipping</string>
 </resources>
