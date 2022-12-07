@@ -25,6 +25,8 @@ class ProductRemoteDataSource @Inject constructor(
             pagingSourceFactory = { ProductPagingSource(productService) }
         ).flow
 
+    override suspend fun getById(id: Int): ProductDto = productService.getById(id)
+
     companion object {
         const val NETWORK_PAGE_SIZE = 10
     }

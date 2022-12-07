@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface ProductDataSource {
     interface Remote {
         suspend fun getProducts(): Flow<PagingData<ProductDto>>
+        suspend fun getById(id: Int): ProductDto
     }
 
     interface Local {
