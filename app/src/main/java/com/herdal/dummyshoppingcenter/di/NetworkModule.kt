@@ -2,6 +2,7 @@ package com.herdal.dummyshoppingcenter.di
 
 import androidx.viewbinding.BuildConfig
 import com.google.gson.Gson
+import com.herdal.dummyshoppingcenter.data.remote.service.CategoryService
 import com.herdal.dummyshoppingcenter.data.remote.service.ProductService
 import com.herdal.dummyshoppingcenter.utils.Constants.BASE_URL
 import com.squareup.moshi.Moshi
@@ -81,4 +82,9 @@ object NetworkModule {
     @Singleton
     fun provideProductService(retrofit: Retrofit): ProductService =
         retrofit.create(ProductService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideCategoryService(retrofit: Retrofit): CategoryService =
+        retrofit.create(CategoryService::class.java)
 }
