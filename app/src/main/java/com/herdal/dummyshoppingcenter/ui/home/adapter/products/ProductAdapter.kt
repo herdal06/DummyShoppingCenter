@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import com.herdal.dummyshoppingcenter.databinding.ItemProductBinding
 import com.herdal.dummyshoppingcenter.ui.home.ProductItemUiState
 
-class ProductAdapter : PagingDataAdapter<ProductItemUiState, ProductViewHolder>(DiffCallback) {
+class ProductAdapter(
+    private val onProductClick: ((productId: Int) -> Unit)?
+) : PagingDataAdapter<ProductItemUiState, ProductViewHolder>(DiffCallback) {
 
     companion object {
         private val DiffCallback = object : DiffUtil.ItemCallback<ProductItemUiState>() {
@@ -34,6 +36,6 @@ class ProductAdapter : PagingDataAdapter<ProductItemUiState, ProductViewHolder>(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ), onProductClick
         )
 }
