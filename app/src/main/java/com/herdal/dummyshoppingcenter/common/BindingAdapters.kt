@@ -41,7 +41,7 @@ fun TextView.setProductStatus(uiState: ProductItemUiState?) {
             this.setBackgroundResource(R.color.orange)
         }
         else if (uiState.getPrice() < 500 && uiState.getRating() >= 4.5) {
-            this.text = resources.getString(R.string.free_shipping)
+            this.text = resources.getString(R.string.high_rated)
             this.setBackgroundResource(R.color.green)
         }
     }
