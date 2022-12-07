@@ -3,7 +3,7 @@ package com.herdal.dummyshoppingcenter.data.remote.datasource
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.herdal.dummyshoppingcenter.common.ProductDataSource
+import com.herdal.dummyshoppingcenter.common.datasource.ProductDataSource
 import com.herdal.dummyshoppingcenter.data.remote.model.product.ProductDto
 import com.herdal.dummyshoppingcenter.data.remote.pagingsource.ProductPagingSource
 import com.herdal.dummyshoppingcenter.data.remote.service.ProductService

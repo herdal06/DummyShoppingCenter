@@ -1,7 +1,9 @@
 package com.herdal.dummyshoppingcenter.di
 
 import com.herdal.dummyshoppingcenter.common.ProductMapper
+import com.herdal.dummyshoppingcenter.domain.repository.CategoryRepository
 import com.herdal.dummyshoppingcenter.domain.repository.ProductRepository
+import com.herdal.dummyshoppingcenter.domain.usecase.category.GetCategoriesUseCase
 import com.herdal.dummyshoppingcenter.domain.usecase.product.GetProductByIdUseCase
 import com.herdal.dummyshoppingcenter.domain.usecase.product.GetProductsUseCase
 import dagger.Module
@@ -25,4 +27,10 @@ object UseCaseModule {
     fun provideGetProductByIdUseCase(
         productRepository: ProductRepository,
     ): GetProductByIdUseCase = GetProductByIdUseCase(productRepository)
+
+    @Provides
+    @Singleton
+    fun provideGetCategoriesUseCase(
+        categoryRepository: CategoryRepository
+    ): GetCategoriesUseCase = GetCategoriesUseCase(categoryRepository)
 }

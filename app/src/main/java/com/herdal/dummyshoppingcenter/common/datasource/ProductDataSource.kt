@@ -1,4 +1,4 @@
-package com.herdal.dummyshoppingcenter.common
+package com.herdal.dummyshoppingcenter.common.datasource
 
 import androidx.paging.PagingData
 import com.herdal.dummyshoppingcenter.data.remote.model.product.ProductDto

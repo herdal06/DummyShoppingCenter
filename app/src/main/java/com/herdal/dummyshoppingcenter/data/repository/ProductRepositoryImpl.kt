@@ -2,7 +2,7 @@ package com.herdal.dummyshoppingcenter.data.repository
 
 import androidx.paging.PagingData
 import androidx.paging.map
-import com.herdal.dummyshoppingcenter.common.ProductDataSource
+import com.herdal.dummyshoppingcenter.common.datasource.ProductDataSource
 import com.herdal.dummyshoppingcenter.common.ProductMapper
 import com.herdal.dummyshoppingcenter.domain.repository.ProductRepository
 import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel

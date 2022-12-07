@@ -1,6 +1,8 @@
 package com.herdal.dummyshoppingcenter.di
 
+import com.herdal.dummyshoppingcenter.data.repository.CategoryRepositoryImpl
 import com.herdal.dummyshoppingcenter.data.repository.ProductRepositoryImpl
+import com.herdal.dummyshoppingcenter.domain.repository.CategoryRepository
 import com.herdal.dummyshoppingcenter.domain.repository.ProductRepository
 import dagger.Binds
 import dagger.Module
@@ -14,4 +16,9 @@ abstract class RepositoryModule {
     abstract fun bindProductRepository(
         productRepositoryImpl: ProductRepositoryImpl
     ): ProductRepository
+
+    @Binds
+    abstract fun bindCategoryRepository(
+        categoryRepositoryImpl: CategoryRepositoryImpl
+    ): CategoryRepository
 }
