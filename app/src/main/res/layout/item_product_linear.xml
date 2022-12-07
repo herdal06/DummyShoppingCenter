@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_favorite_products"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/extra_small_margin">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/extra_small_padding">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivFavoriteProduct"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvFavoriteProductBrand"
+            style="@style/ProductText.XLarge.Orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/extra_small_margin"
+            app:layout_constraintStart_toEndOf="@+id/ivFavoriteProduct"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFavoriteProductPrice"
+            style="@style/ProductText.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/extra_small_margin"
+            android:layout_marginTop="@dimen/extra_small_margin"
+            app:layout_constraintStart_toEndOf="@+id/ivFavoriteProduct"
+            app:layout_constraintTop_toBottomOf="@+id/tvFavoriteProductTitle" />
+
+        <TextView
+            android:id="@+id/tvFavoriteProductTitle"
+            style="@style/ProductText.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/extra_small_margin"
+            android:layout_marginTop="@dimen/extra_small_margin"
+            app:layout_constraintStart_toEndOf="@+id/ivFavoriteProduct"
+            app:layout_constraintTop_toBottomOf="@+id/tvFavoriteProductBrand" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDeleteFromFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:contentDescription="@string/delete_from_favorite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_favorite_orange"
+            tools:ignore="TouchTargetSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
