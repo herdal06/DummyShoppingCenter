@@ -8,4 +8,6 @@ interface ProductRepository {
 
     suspend fun getProducts(): Flow<PagingData<ProductUiModel>>
     suspend fun getById(id: Int): ProductUiModel
+    suspend fun insertToDb(product: ProductUiModel)
+    fun getAllFromDb(): Flow<List<ProductUiModel>>
 }

@@ -13,6 +13,7 @@ import javax.inject.Inject
 
 class ProductRepositoryImpl @Inject constructor(
     private val remote: ProductDataSource.Remote,
+    private val local: ProductDataSource.Local,
     private val mapper: ProductMapper
 ) : ProductRepository {
     override suspend fun getProducts(): Flow<PagingData<ProductUiModel>> {
@@ -28,5 +29,18 @@ class ProductRepositoryImpl @Inject constructor(
     override suspend fun getById(id: Int): ProductUiModel {
         val remoteProduct = remote.getById(id)
         return mapper.mapRemoteProductToDomain(remoteProduct)
+    }
+
+    override suspend fun insertToDb(product: ProductUiModel) {
+        return local.insert(mapper.mapDomainToEntityProduct(product))
+    }
+
+    override fun getAllFromDb(): Flow<List<ProductUiModel>> {
+        val productEntities = local.getAll()
+        return productEntities.map { products ->
+            products.map { productEntity ->
+                mapper.mapEntityProductToDomain(productEntity)
+            }
+        }
     }
 }
