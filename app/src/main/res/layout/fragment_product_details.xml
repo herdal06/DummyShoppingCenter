@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/extra_small_margin"
         android:layout_marginTop="@dimen/double_extra_small_margin"
-        android:text="@{uiState.title}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewBrandDetails" />
 
@@ -47,7 +46,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/extra_small_margin"
         android:layout_marginTop="@dimen/double_extra_small_margin"
-        android:text="@{uiState.description}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
@@ -68,7 +66,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/extra_small_margin"
         android:layout_marginTop="@dimen/extra_small_margin"
-        android:text="@{uiState.brand}"
         app:layout_constraintBottom_toTopOf="@+id/textViewNameDetails"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/indicator" />
@@ -124,7 +121,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/extra_small_margin"
         android:layout_marginEnd="@dimen/extra_small_margin"
-        android:text="@{uiState.categoryName}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/indicator" />
 
@@ -146,7 +142,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/extra_small_margin"
         android:layout_marginTop="@dimen/extra_small_margin"
-        android:text="@{uiState.price}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
