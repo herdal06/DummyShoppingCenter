@@ -12,4 +12,6 @@ data class ProductItemUiState(private val product: ProductUiModel) : BaseUiState
     fun getPrice() = product.price
 
     fun getRating() = product.rating
+
+    fun getId() = product.id
 }

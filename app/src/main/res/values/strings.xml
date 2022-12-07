@@ -11,4 +11,6 @@
     <string name="best_product">Best-Selling! 😊</string>
     <string name="switch_layout_manager">Switch Layout Manager</string>
     <string name="switch_to_dark_mode">Switch to dark mode</string>
+    <string name="image_slider">image_slider</string>
+    <string name="add_to_cart">Add To Cart</string>
 </resources>

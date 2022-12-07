@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.herdal.dummyshoppingcenter.R
 import com.herdal.dummyshoppingcenter.common.Resource
 import com.herdal.dummyshoppingcenter.databinding.FragmentHomeBinding
@@ -28,7 +29,7 @@ class HomeFragment : Fragment() {
     private val viewModel: HomeViewModel by viewModels()
 
     private val productAdapter: ProductAdapter by lazy {
-        ProductAdapter()
+        ProductAdapter(::onProductClick)
     }
 
     override fun onCreateView(
@@ -122,6 +123,11 @@ class HomeFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun onProductClick(productId: Int) {
+        val action = HomeFragmentDirections.actionHomeFragmentToProductDetailsFragment(productId)
+        findNavController().navigate(action)
     }
 
     private fun setupRecyclerView() = binding.apply {
