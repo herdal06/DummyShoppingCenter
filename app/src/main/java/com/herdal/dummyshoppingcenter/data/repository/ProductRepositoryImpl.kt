@@ -24,4 +24,9 @@ class ProductRepositoryImpl @Inject constructor(
         Timber.d("$domainProduct")
         return domainProduct
     }
+
+    override suspend fun getById(id: Int): ProductUiModel {
+        val remoteProduct = remote.getById(id)
+        return mapper.mapRemoteProductToDomain(remoteProduct)
+    }
 }
