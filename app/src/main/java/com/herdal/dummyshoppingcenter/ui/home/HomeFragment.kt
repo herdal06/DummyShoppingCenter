@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.herdal.dummyshoppingcenter.R
 import com.herdal.dummyshoppingcenter.common.Resource
 import com.herdal.dummyshoppingcenter.databinding.FragmentHomeBinding
+import com.herdal.dummyshoppingcenter.ui.home.adapter.categories.CategoryAdapter
 import com.herdal.dummyshoppingcenter.ui.home.adapter.products.ProductAdapter
 import com.herdal.dummyshoppingcenter.utils.ext.hide
 import com.herdal.dummyshoppingcenter.utils.ext.show
@@ -32,6 +33,10 @@ class HomeFragment : Fragment() {
         ProductAdapter(::onProductClick)
     }
 
+    private val categoryAdapter: CategoryAdapter by lazy {
+        CategoryAdapter()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,7 +48,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView()
+        setupRecyclerViews()
         collectApiRequest()
         //collectProducts()
         addMenuProvider()
@@ -82,30 +87,28 @@ class HomeFragment : Fragment() {
         TODO("Not yet implemented")
     }
 
-    private fun collectProducts() = binding.apply {
+    private fun collectCategories() = binding.apply {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch {
-                    viewModel.getAllProducts()
-                    viewModel.productList.collect { res ->
+                    // categories
+                    viewModel.getAllCategories()
+                    viewModel.categories.collect { res ->
                         when (res) {
                             is Resource.Loading -> {
-                                progressBarProducts.show()
-                                textViewErrorMessage.hide()
-                                recyclerViewProducts.hide()
+                                textViewCategoryError.hide()
+                                recyclerViewCategories.hide()
                             }
                             is Resource.Success -> {
-                                progressBarProducts.hide()
-                                textViewErrorMessage.hide()
-                                recyclerViewProducts.show()
-                                res.data?.let {
-                                    productAdapter.submitData(lifecycle, it)
-                                }
+                                textViewCategoryError.hide()
+                                progressBarCategories.hide()
+                                recyclerViewCategories.show()
+                                categoryAdapter.submitList(res.data)
                             }
                             is Resource.Error -> {
-                                progressBarProducts.hide()
-                                textViewErrorMessage.show()
-                                recyclerViewProducts.hide()
+                                progressBarCategories.hide()
+                                textViewCategoryError.show()
+                                recyclerViewCategories.hide()
                             }
                         }
                     }
@@ -130,7 +133,9 @@ class HomeFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    private fun setupRecyclerView() = binding.apply {
+    private fun setupRecyclerViews() = binding.apply {
         recyclerViewProducts.adapter = productAdapter
+        recyclerViewCategories.adapter = categoryAdapter
+        collectCategories()
     }
 }

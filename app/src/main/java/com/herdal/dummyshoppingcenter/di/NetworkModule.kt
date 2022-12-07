@@ -69,7 +69,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
-        moshiConverterFactory: MoshiConverterFactory,
+        moshiConverterFactory: GsonConverterFactory,
         baseUrl: String
     ): Retrofit =
         Retrofit.Builder()
