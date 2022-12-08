@@ -20,6 +20,9 @@
         <argument
             android:name="productId"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_favoriteProductsFragment"
+            app:destination="@id/favoriteProductsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteProductsFragment"
