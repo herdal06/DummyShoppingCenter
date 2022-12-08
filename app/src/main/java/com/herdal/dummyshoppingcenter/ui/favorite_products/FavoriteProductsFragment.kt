@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.herdal.dummyshoppingcenter.databinding.FragmentFavoriteProductsBinding
+import com.herdal.dummyshoppingcenter.ui.favorite_products.adapter.FavoriteProductAdapter
 import com.herdal.dummyshoppingcenter.ui.home.adapter.products.ProductAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,9 +20,11 @@ class FavoriteProductsFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val favoriteProductAdapter: ProductAdapter by lazy {
-        ProductAdapter(::onProductClick)
+    private val favoriteProductAdapter: FavoriteProductAdapter by lazy {
+        FavoriteProductAdapter()
     }
+
+    private val viewModel: FavoriteProductsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +38,15 @@ class FavoriteProductsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+        observeLiveData()
+    }
+
+    private fun observeLiveData() {
+        viewModel.allFavProducts.observe(viewLifecycleOwner) { products ->
+            products.let {
+                favoriteProductAdapter.submitList(it)
+            }
+        }
     }
 
     private fun onProductClick(productId: Int) {
