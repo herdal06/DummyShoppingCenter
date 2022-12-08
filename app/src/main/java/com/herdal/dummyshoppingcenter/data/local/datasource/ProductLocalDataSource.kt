@@ -13,4 +13,5 @@ class ProductLocalDataSource @Inject constructor(
         productDao.insert(productEntity)
 
     override fun getAll(): Flow<List<ProductEntity>> = productDao.getAll()
+    override suspend fun delete(productEntity: ProductEntity) = productDao.delete(productEntity)
 }

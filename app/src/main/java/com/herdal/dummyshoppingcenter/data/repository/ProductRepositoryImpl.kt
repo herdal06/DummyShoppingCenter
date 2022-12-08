@@ -43,4 +43,8 @@ class ProductRepositoryImpl @Inject constructor(
             }
         }
     }
+
+    override suspend fun delete(product: ProductUiModel) {
+        return local.delete(mapper.mapDomainToEntityProduct(product))
+    }
 }

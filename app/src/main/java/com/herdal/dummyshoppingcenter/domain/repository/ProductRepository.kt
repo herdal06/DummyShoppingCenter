@@ -10,4 +10,5 @@ interface ProductRepository {
     suspend fun getById(id: Int): ProductUiModel
     suspend fun insertToDb(product: ProductUiModel)
     fun getAllFromDb(): Flow<List<ProductUiModel>>
+    suspend fun delete(product: ProductUiModel)
 }

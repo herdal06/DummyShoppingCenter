@@ -15,6 +15,8 @@
     <string name="add_to_cart">Add To Cart</string>
     <string name="delete_from_favorite">delete from favorite</string>
     <string name="favorite_products">Favorite Products</string>
+    <string name="product_deleted">Product Deleted From Favorite List!</string>
+    <string name="undo">Undo</string>
     <string name="home">Home</string>
     <string name="cart">Cart</string>
 </resources>

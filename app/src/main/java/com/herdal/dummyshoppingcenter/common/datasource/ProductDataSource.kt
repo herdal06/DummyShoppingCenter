@@ -14,5 +14,6 @@ interface ProductDataSource {
     interface Local {
         suspend fun insert(productEntity: ProductEntity)
         fun getAll(): Flow<List<ProductEntity>>
+        suspend fun delete(productEntity: ProductEntity)
     }
 }
