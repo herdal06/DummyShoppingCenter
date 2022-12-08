@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.herdal.dummyshoppingcenter.common.Resource
 import com.herdal.dummyshoppingcenter.databinding.FragmentProductDetailsBinding
@@ -50,7 +49,6 @@ class ProductDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         collectProductDetailRequest()
-        onClickButton()
     }
 
     private fun onClickFavButton(product: ProductUiModel) =
@@ -60,12 +58,6 @@ class ProductDetailsFragment : Fragment() {
         }
 
     private fun getArgs() = navigationArgs.productId
-
-    private fun onClickButton() = binding.button.setOnClickListener {
-        val action =
-            ProductDetailsFragmentDirections.actionProductDetailsFragmentToFavoriteProductsFragment()
-        findNavController().navigate(action)
-    }
 
     private fun collectProductDetailRequest() = binding.apply {
         lifecycleScope.launch {
