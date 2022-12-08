@@ -1,8 +1,8 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.DummyShoppingCenter" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.DummyShoppingCenter" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/app_background_color</item>
+        <item name="colorPrimary">@color/orange</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
