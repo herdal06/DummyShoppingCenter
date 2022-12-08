@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.herdal.dummyshoppingcenter.common.Resource
 import com.herdal.dummyshoppingcenter.databinding.FragmentProductDetailsBinding
@@ -48,9 +50,22 @@ class ProductDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         collectProductDetailRequest()
+        onClickButton()
     }
 
+    private fun onClickFavButton(product: ProductUiModel) =
+        binding.imageButtonFavDetails.setOnClickListener {
+            Toast.makeText(requireContext(), "Saved to favorite!", Toast.LENGTH_LONG).show()
+            viewModel.saveProductToDb(product)
+        }
+
     private fun getArgs() = navigationArgs.productId
+
+    private fun onClickButton() = binding.button.setOnClickListener {
+        val action =
+            ProductDetailsFragmentDirections.actionProductDetailsFragmentToFavoriteProductsFragment()
+        findNavController().navigate(action)
+    }
 
     private fun collectProductDetailRequest() = binding.apply {
         lifecycleScope.launch {
@@ -90,6 +105,8 @@ class ProductDetailsFragment : Fragment() {
             ratingBar.rating = product.rating.toFloat()
 
             setupViewPager(product)
+
+            onClickFavButton(product)
         }
     }
 

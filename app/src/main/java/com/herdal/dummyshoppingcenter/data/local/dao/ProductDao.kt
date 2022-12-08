@@ -2,17 +2,17 @@ package com.herdal.dummyshoppingcenter.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.herdal.dummyshoppingcenter.data.local.entity.product.ProductEntity
-import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProductDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(productEntity: ProductEntity)
 
     @Query("SELECT * FROM products")
-    fun getAll(): Flow<List<ProductUiModel>>
+    fun getAll(): Flow<List<ProductEntity>>
 }
