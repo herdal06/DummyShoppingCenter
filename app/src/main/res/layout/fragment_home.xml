@@ -27,12 +27,14 @@
                 android:id="@+id/recyclerViewCategories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/app_background_color"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="scroll|enterAlways"
                 tools:listitem="@layout/item_category" />
 
             <ProgressBar
@@ -43,7 +45,8 @@
                 app:layout_constraintBottom_toBottomOf="@+id/recyclerViewCategories"
                 app:layout_constraintEnd_toEndOf="@+id/recyclerViewCategories"
                 app:layout_constraintStart_toStartOf="@+id/recyclerViewCategories"
-                app:layout_constraintTop_toTopOf="@+id/recyclerViewCategories" />
+                app:layout_constraintTop_toTopOf="@+id/recyclerViewCategories"
+                app:layout_scrollFlags="scroll|enterAlways" />
 
             <TextView
                 android:id="@+id/textViewCategoryError"
@@ -54,6 +57,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/recyclerViewCategories"
                 app:layout_constraintStart_toStartOf="@+id/recyclerViewCategories"
                 app:layout_constraintTop_toTopOf="@+id/recyclerViewCategories"
+                app:layout_scrollFlags="scroll|enterAlways"
                 tools:ignore="TextContrastCheck" />
         </com.google.android.material.appbar.AppBarLayout>
 
