@@ -14,15 +14,16 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivFavoriteProduct"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="165dp"
+            android:layout_height="165dp"
+            android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/tvFavoriteProductBrand"
-            style="@style/ProductText.XLarge.Orange"
+            style="@style/ProductText.XXLarge.Orange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/extra_small_margin"
@@ -31,7 +32,7 @@
 
         <TextView
             android:id="@+id/tvFavoriteProductPrice"
-            style="@style/ProductText.Large"
+            style="@style/ProductText.XLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/extra_small_margin"
@@ -41,7 +42,7 @@
 
         <TextView
             android:id="@+id/tvFavoriteProductTitle"
-            style="@style/ProductText.Large"
+            style="@style/ProductText.XLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/extra_small_margin"
