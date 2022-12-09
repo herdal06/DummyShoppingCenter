@@ -74,4 +74,8 @@ object Libs {
             "com.github.skydoves:transformationlayout:" + Versions.transformationLayout
         const val balloon = "com.github.skydoves:balloon:" + Versions.balloon
     }
+
+    object View {
+        const val lottie = "com.airbnb.android:lottie:" + Versions.lottie
+    }
 }
