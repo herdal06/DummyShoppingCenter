@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.herdal.dummyshoppingcenter.R
 import com.herdal.dummyshoppingcenter.databinding.FragmentFavoriteProductsBinding
+import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel
 import com.herdal.dummyshoppingcenter.ui.favorite_products.adapter.FavoriteProductAdapter
+import com.herdal.dummyshoppingcenter.utils.ext.showBalloon
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +27,7 @@ class FavoriteProductsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val favoriteProductAdapter: FavoriteProductAdapter by lazy {
-        FavoriteProductAdapter()
+        FavoriteProductAdapter(::onProductClick)
     }
 
     private val viewModel: FavoriteProductsViewModel by viewModels()
@@ -102,6 +104,16 @@ class FavoriteProductsFragment : Fragment() {
 
     private fun setupRecyclerView() = binding.apply {
         rvFavoriteProducts.adapter = favoriteProductAdapter
+    }
+
+    private fun onProductClick(view: View, product: ProductUiModel) {
+        view.showBalloon(
+            context = requireContext(),
+            lifecycle = viewLifecycleOwner,
+            balloonText = product.category,
+            textColor = R.color.app_background_color,
+            bgColor = R.color.orange,
+        )
     }
 
     override fun onDestroyView() {

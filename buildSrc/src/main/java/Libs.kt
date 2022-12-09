@@ -68,4 +68,10 @@ object Libs {
         const val logger = "com.orhanobut:logger:" + Versions.logger
         const val timber = "com.jakewharton.timber:timber:" + Versions.timber
     }
+
+    object SkyDoves {
+        const val transformationLayout =
+            "com.github.skydoves:transformationlayout:" + Versions.transformationLayout
+        const val balloon = "com.github.skydoves:balloon:" + Versions.balloon
+    }
 }

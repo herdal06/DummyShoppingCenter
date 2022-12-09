@@ -11,6 +11,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
+import com.herdal.dummyshoppingcenter.R
 import com.herdal.dummyshoppingcenter.common.Resource
 import com.herdal.dummyshoppingcenter.databinding.FragmentProductDetailsBinding
 import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel
@@ -18,6 +19,7 @@ import com.herdal.dummyshoppingcenter.ui.product_detail.adapter.ImageSlideAdapte
 import com.herdal.dummyshoppingcenter.utils.ext.getFormattedPrice
 import com.herdal.dummyshoppingcenter.utils.ext.hide
 import com.herdal.dummyshoppingcenter.utils.ext.show
+import com.herdal.dummyshoppingcenter.utils.ext.showBalloon
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -49,6 +51,7 @@ class ProductDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         collectProductDetailRequest()
+
     }
 
     private fun onClickFavButton(product: ProductUiModel) =
@@ -99,6 +102,16 @@ class ProductDetailsFragment : Fragment() {
             setupViewPager(product)
 
             onClickFavButton(product)
+
+            binding.textViewBrandDetails.setOnClickListener {
+                it.showBalloon(
+                    requireContext(),
+                    viewLifecycleOwner,
+                    product.category,
+                    textColor = R.color.orange,
+                    bgColor = R.color.white
+                )
+            }
         }
     }
 

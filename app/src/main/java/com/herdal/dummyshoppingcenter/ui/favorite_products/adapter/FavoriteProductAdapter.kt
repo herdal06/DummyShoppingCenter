@@ -1,13 +1,16 @@
 package com.herdal.dummyshoppingcenter.ui.favorite_products.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import com.herdal.dummyshoppingcenter.databinding.ItemProductLinearBinding
 import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel
 
-class FavoriteProductAdapter :
+class FavoriteProductAdapter(
+    private val onFavProductClick: ((view: View, product: ProductUiModel) -> Unit)?
+) :
     ListAdapter<ProductUiModel, FavoriteProductViewHolder>(DiffCallback) {
 
     companion object {
@@ -29,7 +32,7 @@ class FavoriteProductAdapter :
             ItemProductLinearBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent, false
-            )
+            ), onFavProductClick
         )
 
     override fun onBindViewHolder(holder: FavoriteProductViewHolder, position: Int) {

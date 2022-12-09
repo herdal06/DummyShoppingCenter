@@ -101,4 +101,10 @@ dependencies {
 
     // Logger
     implementation Libs.Log.logger
+
+    // TransformationLayout
+    implementation Libs.SkyDoves.transformationLayout
+
+    // Balloon
+    implementation Libs.SkyDoves.balloon
 }
