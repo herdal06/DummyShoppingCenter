@@ -3,8 +3,8 @@ package com.herdal.dummyshoppingcenter.ui.product_detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.herdal.dummyshoppingcenter.common.Resource
-import com.herdal.dummyshoppingcenter.domain.repository.ProductRepository
 import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel
+import com.herdal.dummyshoppingcenter.domain.usecase.product.AddProductToFavoriteUseCase
 import com.herdal.dummyshoppingcenter.domain.usecase.product.GetProductByIdUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ProductDetailsViewModel @Inject constructor(
     private val getProductByIdUseCase: GetProductByIdUseCase,
-    private val productRepository: ProductRepository
+    private val addProductToFavoriteUseCase: AddProductToFavoriteUseCase,
 ) : ViewModel() {
     private val _productDetail =
         MutableStateFlow<Resource<ProductUiModel>>(Resource.Loading())
@@ -43,6 +43,6 @@ class ProductDetailsViewModel @Inject constructor(
     }
 
     fun saveProductToDb(product: ProductUiModel) = viewModelScope.launch {
-        productRepository.insertToDb(product)
+        addProductToFavoriteUseCase.invoke(product)
     }
 }

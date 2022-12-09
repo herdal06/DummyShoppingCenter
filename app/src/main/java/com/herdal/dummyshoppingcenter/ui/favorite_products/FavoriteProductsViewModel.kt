@@ -4,8 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.herdal.dummyshoppingcenter.domain.repository.ProductRepository
 import com.herdal.dummyshoppingcenter.domain.uimodel.ProductUiModel
+import com.herdal.dummyshoppingcenter.domain.usecase.product.AddProductToFavoriteUseCase
+import com.herdal.dummyshoppingcenter.domain.usecase.product.DeleteProductFromDbUseCase
+import com.herdal.dummyshoppingcenter.domain.usecase.product.GetProductsFromDbUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -14,11 +16,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavoriteProductsViewModel @Inject constructor(
-    private val productRepository: ProductRepository
+    getProductsFromDbUseCase: GetProductsFromDbUseCase,
+    private val deleteProductFromDbUseCase: DeleteProductFromDbUseCase,
+    private val addProductToFavoriteUseCase: AddProductToFavoriteUseCase
 ) : ViewModel() {
 
     val allFavProducts: LiveData<List<ProductUiModel>> =
-        productRepository.getAllFromDb().asLiveData()
+        getProductsFromDbUseCase.invoke().asLiveData()
 
     private val productsEventChannel = Channel<ProductsEvent>()
     val productsEvent = productsEventChannel.receiveAsFlow()
@@ -28,11 +32,11 @@ class FavoriteProductsViewModel @Inject constructor(
     }
 
     fun onItemSwiped(product: ProductUiModel) = viewModelScope.launch {
-        productRepository.delete(product)
+        deleteProductFromDbUseCase.invoke(product)
         productsEventChannel.send(ProductsEvent.ShowUndoDeleteItemMessage(product))
     }
 
     fun onUndoDeleteClick(product: ProductUiModel) = viewModelScope.launch {
-        productRepository.insertToDb(product)
+        addProductToFavoriteUseCase.invoke(product)
     }
 }
