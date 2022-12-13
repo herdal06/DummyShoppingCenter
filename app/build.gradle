@@ -107,4 +107,7 @@ dependencies {
 
     // Balloon
     implementation Libs.SkyDoves.balloon
+
+    // Lottie
+    implementation Libs.View.lottie
 }

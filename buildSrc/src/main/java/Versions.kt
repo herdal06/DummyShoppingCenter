@@ -28,4 +28,5 @@ object Versions {
     const val swipe_refresh_layout = "1.1.0"
     const val transformationLayout = "1.1.1"
     const val balloon = "1.4.7"
+    const val lottie = "3.4.0"
 }

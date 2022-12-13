@@ -13,6 +13,8 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:windowBackground">@color/app_background_color</item>
+        <!-- Disable default splash screen -->
+        <item name="android:windowIsTranslucent">true</item>
     </style>
     <!-- product item text -->
     <style name="ProductText" parent="@android:style/TextAppearance">

@@ -9,6 +9,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.herdal.dummyshoppingcenter.R
 import com.herdal.dummyshoppingcenter.databinding.ActivityMainBinding
+import com.herdal.dummyshoppingcenter.utils.ext.hide
+import com.herdal.dummyshoppingcenter.utils.ext.show
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,8 +35,17 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        val noBottomNavigationIds = listOf(R.id.viewPagerFragment,R.id.splashFragment)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (noBottomNavigationIds.contains(destination.id)) {
+                navView.hide()
+            } else {
+                navView.show()
+            }
+        }
+
         navView.setupWithNavController(navController)
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override fun onSupportNavigateUp(): Boolean {
