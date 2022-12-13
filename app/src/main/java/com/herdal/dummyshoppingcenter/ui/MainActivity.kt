@@ -35,13 +35,11 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        val noBottomNavigationIds = listOf(R.id.viewPagerFragment)
+        val noBottomNavigationIds = listOf(R.id.viewPagerFragment,R.id.splashFragment)
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (noBottomNavigationIds.contains(destination.id)) {
-                supportActionBar?.hide()
                 navView.hide()
             } else {
-                supportActionBar?.show()
                 navView.show()
             }
         }
