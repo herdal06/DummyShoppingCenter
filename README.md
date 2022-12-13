@@ -15,7 +15,7 @@ Shopping Center Application that show products and categories Based on DummyJson
 
 | home screen | product detail | favorite products |
 |:-:|:-:|:-:|
-| <img src="https://raw.githubusercontent.com/herdal06/DummyShoppingCenter/0a93bf545dfcee0b697d8ef191ffa2820bfa6ab9/arts/home.png?token=ATO35I5ZXWIKFD262YHSKJTDTB46U" alt="drawing" width="300"/> | <img src="https://github.com/herdal06/DummyShoppingCenter/blob/develop/arts/details.png?raw=true" alt="drawing" width="300"/> | <img src="https://github.com/herdal06/DummyShoppingCenter/blob/develop/arts/favorite.png?raw=true" alt="drawing" width="300"/> 
+| <img src="https://github.com/herdal06/DummyShoppingCenter/blob/master/arts/home.png?raw=true" alt="drawing" width="300"/> | <img src="https://github.com/herdal06/DummyShoppingCenter/blob/develop/arts/details.png?raw=true" alt="drawing" width="300"/> | <img src="https://github.com/herdal06/DummyShoppingCenter/blob/develop/arts/favorite.png?raw=true" alt="drawing" width="300"/> 
 | on boarding gif | product details gif | favorite products gif |
 | <img src="https://github.com/herdal06/DummyShoppingCenter/blob/master/arts/onboarding.gif?raw=true" alt="drawing" width="300"/> | <img src="https://github.com/herdal06/DummyShoppingCenter/blob/master/arts/details.gif?raw=true" alt="drawing" width="300"/> | <img src="https://github.com/herdal06/DummyShoppingCenter/blob/master/arts/favorite.gif?raw=true" alt="drawing" width="300"/> 
 
