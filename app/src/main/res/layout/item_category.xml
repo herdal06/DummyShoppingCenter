@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="uiState"
+            type="com.herdal.dummyshoppingcenter.ui.home.CategoryItemUiState" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/small_padding"
+        android:layout_marginVertical="@dimen/medium_padding"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/orange"
+        app:cardElevation="@dimen/item_category_elevation"
+        tools:ignore="TouchTargetSizeCheck">
+
+        <TextView
+            android:id="@+id/tvCategoryName"
+            style="@style/CategoryText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/small_padding"
+            android:layout_marginVertical="@dimen/medium_padding"
+            android:padding="@dimen/double_extra_small_padding"
+            android:text="@{uiState.name}" />
+    </com.google.android.material.card.MaterialCardView>
+</layout>

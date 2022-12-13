@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">DummyShoppingCenter</string>
+    <string name="app_name">Dummy Shopping Center</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="no_results">No results 😓</string>
+    <string name="star_icon">star_icon</string>
+    <string name="icon_favorite">icon_favorite</string>
+    <string name="error_message">Error while loading data!</string>
+    <string name="high_rated">High Rated</string>
+    <string name="free_shipping">Free Shipping</string>
+    <string name="best_product">Best-Selling! 😊</string>
+    <string name="switch_layout_manager">Switch Layout Manager</string>
+    <string name="switch_to_dark_mode">Switch to dark mode</string>
+    <string name="image_slider">image_slider</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="delete_from_favorite">delete from favorite</string>
+    <string name="favorite_products">Favorite Products</string>
+    <string name="product_deleted">Product Deleted From Favorite List!</string>
+    <string name="undo">Undo</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="viewpager_first_screen_text">Amazing e-commerce platform for everyone.</string>
+    <string name="next">Next</string>
+    <string name="viewpager_second_screen_text">Gives you speedy and reliable exporting service.</string>
 </resources>
