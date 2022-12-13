@@ -38,6 +38,7 @@ Shopping Center Application that show products and categories Based on DummyJson
 * ✅ [Data Binding][86] - The Data Binding Library is a support library that allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
 * ✅ [Lifecycle][22] - As a user navigates through, out of, and back to your app, the Activity instances in your app transition through different states in their lifecycle.
 * ✅ [Glide][27] - for image loading framework for Android that wraps media decoding, memory and disk caching, and resource pooling into a simple and easy to use interface.
+* ✅ [Timber][9] - This is a logger with a small, extensible API which provides utility on top of Android's normal Log class.
 * ✅ [Balloon][42] - 🎈 Modernized and sophisticated tooltips, fully customizable with an arrow and animations on Android.
 
 [11]: https://developer.android.com/topic/libraries/view-binding
@@ -58,3 +59,4 @@ Shopping Center Application that show products and categories Based on DummyJson
 [12]: https://developer.android.com/jetpack/androidx/releases/room
 [95]: https://github.com/square/moshi
 [42]: https://github.com/skydoves/Balloon
+[9]: https://github.com/JakeWharton/timber
