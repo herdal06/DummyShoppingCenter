@@ -9,11 +9,11 @@
 
     <View
         android:id="@+id/viewAppName"
-        android:layout_width="264dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="314dp"
+        android:layout_height="29dp"
         android:layout_gravity="center"
-        android:background="@drawable/dummy_shopping_center" />
+        android:layout_marginTop="64dp"
+        android:background="@drawable/shopping_center" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
