@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
-        supportActionBar?.hide()
         setContentView(view)
 
         val navView: BottomNavigationView = binding.navView
@@ -39,8 +38,10 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (noBottomNavigationIds.contains(destination.id)) {
                 navView.hide()
+                supportActionBar?.hide()
             } else {
                 navView.show()
+                supportActionBar?.hide()
             }
         }
 
